@@ -7,7 +7,9 @@ public class DNAPalindrome {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter a DNA sequence: ");
         String input = scanner.nextLine();
-        System.out.println("isWatsonCrick: " + isWatsonCrick(input.toUpperCase()));
+        checkValidInput(input);
+        System.out.println("isWatsonCrick: " + isWatsonCrick(input));
+        scanner.close();
     }
 
     public static boolean isWatsonCrick(String dna) {
@@ -23,5 +25,15 @@ public class DNAPalindrome {
         queue.reverse();
         char[] reversedChars = queue.toString().toCharArray();
         return Arrays.equals(dnaChars, reversedChars);
+    }
+
+    public static void checkValidInput(String input) {
+        char[] chars = input.toCharArray();
+        for (char c : chars) {
+            if (Character.isLowerCase(c)) throw new IllegalArgumentException();
+            if (Character.isSpaceChar(c)) throw new IllegalArgumentException();
+            if (Character.isDigit(c)) throw new IllegalArgumentException();
+            if (c != 'A' && c != 'T' && c != 'C' && c != 'G') throw new IllegalArgumentException();
+        }
     }
 }
