@@ -32,7 +32,6 @@ public class DNAPalindrome {
         for (char c : chars) {
             if (Character.isLowerCase(c)) throw new IllegalArgumentException();
             if (Character.isSpaceChar(c)) throw new IllegalArgumentException();
-            if (Character.isDigit(c)) throw new IllegalArgumentException();
             if (c != 'A' && c != 'T' && c != 'C' && c != 'G') throw new IllegalArgumentException();
         }
     }
