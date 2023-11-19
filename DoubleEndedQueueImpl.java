@@ -11,6 +11,9 @@ public class DoubleEndedQueueImpl<T> implements DoubleEndedQueue<T> {
         T item;            // The object stored in each node
         Node<T> next;      // The next node
         Node<T> prev;      // The previous node
+        public String toString() {
+            return item.toString();
+        }
     }
 
     // Constructor to initialize the queue
@@ -113,8 +116,34 @@ public class DoubleEndedQueueImpl<T> implements DoubleEndedQueue<T> {
         stream.println();
     }
 
+    @Override
+    public String toString() {
+        Node<T> current = this.first;
+        StringBuilder sb = new StringBuilder();
+        while (current != null) {
+            sb.append(current);
+            current = current.next;
+        }
+        return sb.toString();
+    }
+
     // Returns the size of the queue
     public int size() {
         return size;
+    }
+
+    public void reverse() {
+        Node<T> temp = null;
+        Node<T> current = this.first;
+        this.last = current;
+        while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+        if (temp != null) {
+            this.first = temp.prev;
+        }
     }
 }
