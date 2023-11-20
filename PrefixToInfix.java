@@ -45,7 +45,7 @@ public class PrefixToInfix {
                     operators++;
                 }
                 // Check if it is a number (digit)
-                else if ((int) c >= 48 && (int) c <= 57) {
+                else if (Character.isDigit(c)) {
                     numbers++;
                     findNumber = true;
                     findOperator = false;
