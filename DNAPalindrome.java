@@ -30,7 +30,7 @@ public class DNAPalindrome {
     public static void checkValidInput(String input) {
         char[] chars = input.toCharArray();
         for (char c : chars) {
-            if (c != 'A' && c != 'T' && c != 'C' && c != 'G') throw new IllegalArgumentException();
+            if (c != 'A' && c != 'T' && c != 'C' && c != 'G') throw new IllegalArgumentException("Invalid DNA sequence. Only characters A, T, C, and G are allowed.");
         }
     }
 }
