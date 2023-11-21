@@ -132,18 +132,4 @@ public class DoubleEndedQueueImpl<T> implements DoubleEndedQueue<T> {
         return size;
     }
 
-    public void reverse() {
-        Node<T> temp = null;
-        Node<T> current = this.first;
-        this.last = current;
-        while (current != null) {
-            temp = current.prev;
-            current.prev = current.next;
-            current.next = temp;
-            current = current.prev;
-        }
-        if (temp != null) {
-            this.first = temp.prev;
-        }
-    }
 }
