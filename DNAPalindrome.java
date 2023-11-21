@@ -8,11 +8,11 @@ public class DNAPalindrome {
         System.out.print("Please enter a DNA sequence: ");
         String input = scanner.nextLine();
         checkValidInput(input);
-        System.out.println("isWatsonCrick: " + isWatsonCrick(input));
+        System.out.println("isWatsonCrick: " + isWatsonCrickPalindrome(input));
         scanner.close();
     }
 
-    public static boolean isWatsonCrick(String dnaInput) {
+    public static boolean isWatsonCrickPalindrome(String dnaInput) {
         if (dnaInput.isEmpty()) return true;
         char[] dnaChars = dnaInput.toCharArray();
         DoubleEndedQueueImpl<Character> queue = new DoubleEndedQueueImpl<>();
