@@ -14,8 +14,8 @@ public class DNAPalindrome {
 
     public static boolean isWatsonCrickPalindrome(String dnaInput) {
         if (dnaInput.isEmpty()) return true;
-        char[] dnaChars = dnaInput.toCharArray();
         DoubleEndedQueueImpl<Character> queue = new DoubleEndedQueueImpl<>();
+        char[] dnaChars = dnaInput.toCharArray();
         for (char dnaChar : dnaChars) {
             if (dnaChar == 'A') queue.addLast('T');
             if (dnaChar == 'T') queue.addLast('A');
