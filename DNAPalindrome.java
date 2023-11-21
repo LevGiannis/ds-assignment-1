@@ -17,12 +17,11 @@ public class DNAPalindrome {
         DoubleEndedQueueImpl<Character> queue = new DoubleEndedQueueImpl<>();
         char[] dnaChars = dnaInput.toCharArray();
         for (char dnaChar : dnaChars) {
-            if (dnaChar == 'A') queue.addLast('T');
-            if (dnaChar == 'T') queue.addLast('A');
-            if (dnaChar == 'C') queue.addLast('G');
-            if (dnaChar == 'G') queue.addLast('C');
+            if (dnaChar == 'A') queue.addFirst('T');
+            if (dnaChar == 'T') queue.addFirst('A');
+            if (dnaChar == 'C') queue.addFirst('G');
+            if (dnaChar == 'G') queue.addFirst('C');
         }
-        queue.reverse();
         String reversedDna = queue.toString();
         return reversedDna.equals(dnaInput);
     }
