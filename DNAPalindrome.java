@@ -8,7 +8,7 @@ public class DNAPalindrome {
         System.out.print("Please enter a DNA sequence: ");
         String input = scanner.nextLine();
         checkValidInput(input);
-        System.out.println("isWatsonCrick: " + isWatsonCrickPalindrome(input));
+        System.out.println("isWatsonCrickPalindrome: " + isWatsonCrickPalindrome(input));
         scanner.close();
     }
 
