@@ -12,9 +12,9 @@ public class DNAPalindrome {
         scanner.close();
     }
 
-    public static boolean isWatsonCrick(String dna) {
-        if (dna.isEmpty()) return true;
-        char[] dnaChars = dna.toCharArray();
+    public static boolean isWatsonCrick(String dnaInput) {
+        if (dnaInput.isEmpty()) return true;
+        char[] dnaChars = dnaInput.toCharArray();
         DoubleEndedQueueImpl<Character> queue = new DoubleEndedQueueImpl<>();
         for (char dnaChar : dnaChars) {
             if (dnaChar == 'A') queue.addLast('T');
@@ -23,8 +23,8 @@ public class DNAPalindrome {
             if (dnaChar == 'G') queue.addLast('C');
         }
         queue.reverse();
-        char[] reversedChars = queue.toString().toCharArray();
-        return Arrays.equals(dnaChars, reversedChars);
+        String reversedDna = queue.toString();
+        return reversedDna.equals(dnaInput);
     }
 
     public static void checkValidInput(String input) {
