@@ -45,7 +45,7 @@ public class PrefixToInfix {
                     operators++;
                 }
                 // Check if it is a number (digit)
-                else if ((int) c >= 48 && (int) c <= 57) {
+                else if (Character.isDigit(c)) {
                     numbers++;
                     findNumber = true;
                     findOperator = false;
@@ -53,13 +53,13 @@ public class PrefixToInfix {
                     // Invalid character in the expression
                     return false;
                 }
+            } 
+            // Check for a balanced expression with correct number of operators and operands
+            if (findNumber && findOperator) {
+                return false;
             }
         }
 
-        // Check for a balanced expression with correct number of operators and operands
-        if (findNumber && findOperator) {
-            return false;
-        }
         return numbers == operators + 1;
     }
 
